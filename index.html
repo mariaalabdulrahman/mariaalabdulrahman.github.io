@@ -4,13 +4,504 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="public/CSS/main.css">
     <link rel="shortcut icon" type="image/png" href="/Images/logo_dark.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&amp;family=Arvo:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Maria A.</title>
+  <style>
+    body{
+    background-color: #f86424;
+    margin:0;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Arvo', serif;
+    user-select: none;
+}
+textarea {resize: none;}
+a{color:#f6e2db;}
+a:hover{color:darkcyan}
+.header{
+    display: flex;
+    justify-content: space-between;
+    padding:40px 90px;
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    height: 50px;
+    background-color: #f86424;
+}
+.header img{
+    cursor: pointer;
+    transition: width 0.3s ease-out 50ms;
+    margin:auto;
+}
+.header img:hover{width:60px}
+.crossDiv{
+    width:70px;
+    cursor: pointer;
+}
+#crossDiv hr{color:#f6e2db}
+#crossBottom{
+    position: relative;
+    margin-top: 15px;
+}
+#resumeDiv{
+    padding:5px;
+    border-radius: 10px;
+    border: 1px solid #f6e2db;
+    color: #f6e2db;
+    cursor: pointer;
+}
+#resumeDiv:hover{
+    background-color: #f6e2db;
+    color: #f86424;
+}
+.home, .about, .skills, .projects, .papers, .timeline{
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+}
+.home p{
+    font-size: 30px;
+    color: #f6e2db;
+    font-weight: 700;
+}
+.heading{
+    font-family: 'Abril Fatface', cursive;
+    margin: auto;
+    font-size: 200px;
+    color: #f6e2db;
+    font-weight: 700;
+}
+.heading2{
+    font-family: 'Arvo', serif;
+    margin: auto;
+    font-size: 100px;
+    color: #f6e2db;
+    font-weight: 700;
+}
+
+#dropDown{
+    position: absolute;
+    height: 700px;
+    width: 100%;
+    background-color: darkcyan;
+    z-index: 2 !important;
+    box-sizing: border-box;
+
+    padding: 40px;
+    padding-top: 150px;
+    
+    display: none;
+    justify-content: center;
+    flex-direction: column;
+
+    box-shadow: 5px 5px 50px rgb(7, 61, 61);
+    border-radius: 0px 0px 15px 15px;
+}
+.dropDownContent{
+    width: 95%;
+    height: 100%;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.options{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    width: 40%;
+    margin: auto;
+    margin-top: 20px;
+}
+.option{
+    cursor: pointer;
+    font-size: 35px;
+    color:#f6e2db
+}
+.option:hover{background-color: #f86424;}
+#secondaryButtons{display: none;}
+#secondaryButtons *{cursor: pointer;}
+#secondaryButtons p:hover{background-color: darkcyan;}
+
+.additionals,.additionals2{
+    display: flex;
+    margin: auto;
+    justify-content: space-evenly;
+    width: 12%;
+    background-color: #fcdbcd;
+    padding: 10px;
+    border-radius: 7px;
+}
+.additionals img, .additionals2 img{cursor: pointer;}
+
+.additionals2{
+    margin-left: 0;
+    width: 150px;
+    display: none;
+}
+
+.prompt{
+    position: absolute;
+    width: 260px;
+    top: 10px;
+    left: 10px;
+    border-radius: 10px;
+    box-shadow: 10px 10px 50px  gray;
+    background-color: aliceblue;
+    
+    display: none;
+    padding: 20px;
+    z-index:6;
+}
+.prompt span{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.generalP{
+    color: #f6e2db;
+    font-size: 40px;
+}
+.annotated{
+    font-weight:bold; 
+    font-size: 50px;
+    text-decoration: underline;
+    color:#f6e2db;
+}
+.skillDiv{
+    display: flex;
+    justify-content: space-evenly;
+    width: inherit;
+    margin: auto;
+    margin-top: 40px;
+}
+.skillCard{
+    height: 350px;
+    width: 27%;
+    background-color: darkcyan;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.skillCard img{
+    border-radius: 100px;
+    background-color: aliceblue;
+    padding: 10px;
+    height: 120px;
+    width: 120px;
+    margin: auto;
+}
+.skillText{
+    width: 90%;
+    margin: auto;
+}
+.skillText p,h1{
+    color:white;
+    text-align: center;
+    margin: auto;
+}
+.skillText h1{font-size: 30px;}
+.skillText p{font-size: 20px;}
+.skillCard img{margin: auto;}
+
+.timeLineContainer{
+    width: 90%;
+    position: relative;
+    margin: 0 auto;
+    background-color: rgb(7, 122, 122);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.timeLineContainer::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: aliceblue;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+}
+
+.eventContainer {
+    padding-top: 10px;
+    padding: 10px 40px;
+    position: relative;
+    z-index: 3 !important;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.eventContainer::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    right: -17px;
+    background-color: white;
+    border: 4px solid #FF9F55;
+    top: 15px;
+    border-radius: 50%;
+    z-index: 1;
+}
+
+.left {left: 0;}
+.right {left: 50%;}
+
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+}
+  
+.right::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    left: 30px;
+    border: medium solid white;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent white transparent transparent;
+}
+
+.right::after {left: -16px;}
+  
+.content {
+    padding: 20px 30px;
+    background-color: white;
+    position: relative;
+    border-radius: 6px;
+}
+
+.projectCardInfo p{font-size: 20px;}
+
+.projectsContainer{
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20px;
+    padding: 20px;
+    border-radius: 10px;
+    margin: auto;
+    box-sizing: border-box;
+}
+.projectCard{
+    width: 90%;
+    height: 500px;
+    margin: auto;
+    cursor: pointer;
+    overflow: hidden;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+.imgDiv{
+    width: 50%;
+    background-size:cover ;
+    border-radius: 15px;
+    z-index: 1;
+    box-shadow: 5px 20px 50px grey;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+}
+.imgDiv p{
+    background-color: darkcyan;
+    text-align: start;
+    color: #f6e2db;
+    font-size: 30px;
+    padding: 20px;
+    height: 7%;
+    overflow: hidden;
+}
+.projectCardInfo{
+    height: 450px;
+    width: 0;
+    background-color: white;
+    position: relative;
+    top:25px;
+    border-radius: 0px 10px 10px 0px;
+    overflow: hidden;
+    box-sizing: border-box;
+    overflow-y: scroll;
+}
+.projectCardInfo *{display: none;}
+.lineUp {
+    animation: 2s anim-lineUp ease-out;
+    z-index: 1 !important;
+}
+::-webkit-scrollbar {width: 0px;}
+
+@media screen and (max-width: 1000px) {
+    .timeLineContainer::after {left: 31px;}
+    
+    .eventContainer {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+    }
+    
+    .eventContainer::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+    }
+    .left::after, .right::after {left: -5px;}
+    .right {left: 0%;}
+}
+
+@media (max-width:1630px){
+    .heading{
+        font-size: 150px;
+    }
+    .additionals{
+        width: 15%;
+    }
+}
+@media (max-width:1250px){
+    .heading{
+        font-size: 100px;
+    }
+}
+@media (max-width:1450px){
+    .skillDiv{
+        flex-direction: column;
+        flex-flow: row wrap;
+    }
+    .skillCard{
+        width: 70%;
+        margin: auto;
+        margin-top: 20px;
+        margin-bottom: 10px;
+    }
+}
+@media (max-width:1400px){
+    .additionals{
+        width: 20%;
+    }
+    .imgDiv{display: none;}
+    .projectCardInfo{
+        display: block !important;
+        width: 100% !important;
+        padding: 20px !important;
+        border-radius: 15px !important;
+    }
+    .projectCardInfo *{display: block !important;}
+}
+@media (max-width:1250px){
+    .heading{
+        font-size: 100px;
+    }
+}
+@media (max-width:1000px){
+    .additionals{
+        width: 25%;
+    }
+}
+@media (max-width:850px){
+    .heading{
+        font-size: 50px;
+        margin: 0;
+    }
+    .home p{
+        font-size: 20px;
+    }
+    .header{
+        padding: 40px 60px;
+    }
+    .heading2{font-size: 30px;}
+    .skillCard img{
+        width: 50px;
+        height: 50px;
+    }
+    .crossDiv{display: none;}
+    .additionals2{display: flex;}
+    #secondaryButtons{display: block;}
+}
+@media (max-width:850px){
+    .generalP{font-size: 30px;}
+    .projectsContainer, .projects{padding: 0;}
+    .projectCard{width: 100%;}
+    .projectCardInfo{width: 100%;}
+}
+@media (max-width:750px){
+    skillCard{width: 95%;}
+}
+@media (max-width:450px){
+    .heading{
+        font-size: 40px;
+        margin: 0;
+    }
+}
+
+@keyframes shake {
+    0%{
+        transform: rotate(0);
+    }
+    35%{
+        transform: rotate(-20deg);
+    }
+    75%{
+        transform: rotate(20deg);
+    }
+    100%{
+        transform: rotate(0);
+    }
+}
+  
+@keyframes anim-lineUp {
+    0% {
+        opacity: 0;
+        transform: translateY(80%);
+        -webkit-transform-style: preserve-3d;
+    }
+    20% {
+        opacity: 0;
+        -webkit-transform-style: preserve-3d;
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(0%);
+        -webkit-transform-style: preserve-3d;
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0%);
+        -webkit-transform-style: preserve-3d;
+    }
+}
+  </style>
   </head>
   <script>
     var disableCross=false, crossed=false;
